@@ -1,13 +1,22 @@
 const express = require('express');
 const router = express.Router();
 
-
-const {createUser, createPasswordResetToken}  = require("../controllers/userController");
-
-
-router.post("/", createUser);
+const verifyToken = require('../middleware/authMiddleware');
+const isAdmin = require('../middleware/adminMiddleware');
+const userController  = require("../controllers/userController");
 
 
-router.post("/reset-token", createPasswordResetToken);
+router.post('/register',userController.registerUser)
+
+router.post('/login', userController.loginUser)
+
+router.get('/profile', verifyToken, (req, res) => {
+    res.json({message : "Welcome to your profile", user: req.user});
+});
+
+router.get('/admin-dashboard', verifyToken, isAdmin, (req, res) => {
+    res.json({message:" Welcome Admin!"})
+});
+   
 
 module.exports = router;
