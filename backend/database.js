@@ -28,7 +28,7 @@ db.serialize(() => {
     console.log("🧹 Old tables dropped");
   }
 
-  // ================= STUDENTS =================
+  // STUDENTS 
   db.run(`
     CREATE TABLE IF NOT EXISTS students (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -39,7 +39,7 @@ db.serialize(() => {
     )
   `);
 
-  // ================= COURSES =================
+  //COURSES
   db.run(`
     CREATE TABLE IF NOT EXISTS courses (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -50,7 +50,7 @@ db.serialize(() => {
     )
   `);
 
-  // ================= USERS =================
+  //  USERS 
   db.run(`
     CREATE TABLE IF NOT EXISTS users (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -60,7 +60,7 @@ db.serialize(() => {
     );
   `);
 
-  // ================= ENROLLMENTS =================
+  //  ENROLLMENTS 
   db.run(`
     CREATE TABLE IF NOT EXISTS enrollments (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -71,7 +71,7 @@ db.serialize(() => {
     )
   `);
 
-  // ================= GRADES =================
+  // GRADES 
   db.run(`
     CREATE TABLE IF NOT EXISTS grades (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -81,7 +81,7 @@ db.serialize(() => {
     )
   `);
 
-  // ================= TEACHER =================
+  // TEACHER 
   db.run(`
     CREATE TABLE IF NOT EXISTS teacher (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
